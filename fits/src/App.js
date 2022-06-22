@@ -1,6 +1,7 @@
-import './components/category-item/category-item';
-import './categories.styles.scss';
+import './components/directory/directory';
+
 import CategoryItem from './components/category-item/category-item';
+import Directory from './components/directory/directory';
 
 const App = () => {
   const categories = [
@@ -33,15 +34,7 @@ const App = () => {
 
   // data above is mapped below, saves having to write multiple divs, cleaner code!
 
-  return (
-    // container holding all the categories
-    // container for a single category
-    <div className='categories-container'>
-      {categories.map((category) => (
-        <CategoryItem key={category.id} category={category} />
-      ))}
-    </div>
-  );
+  return <Directory categories={categories} />;
 };
 
 export default App;
