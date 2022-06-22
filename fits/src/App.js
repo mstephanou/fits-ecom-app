@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import './components/category-item/category-item';
+import './categories.styles.scss';
+import CategoryItem from './components/category-item/category-item';
 
-function App() {
+const App = () => {
+  const categories = [
+    {
+      id: 1,
+      title: 'Headwear',
+      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+    },
+    {
+      id: 2,
+      title: 'Outerwear',
+      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+    },
+    {
+      id: 3,
+      title: 'Footwear',
+      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+    },
+    {
+      id: 4,
+      title: 'Womens',
+      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+    },
+    {
+      id: 5,
+      title: 'Mens',
+      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+    },
+  ];
+
+  // data above is mapped below, saves having to write multiple divs, cleaner code!
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // container holding all the categories
+    // container for a single category
+    <div className='categories-container'>
+      {categories.map((category) => (
+        <CategoryItem key={category.id} category={category} />
+      ))}
     </div>
   );
-}
+};
 
 export default App;
