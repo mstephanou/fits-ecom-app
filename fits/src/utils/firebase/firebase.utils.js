@@ -1,5 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
+
+import { useEffect } from 'react';
+import { getRedirectResult } from 'firebase/auth';
+
 import {
   getAuth,
   signInWithRedirect,
@@ -29,8 +33,14 @@ const firebaseApp = initializeApp(firebaseConfig);
 // Set up google auth params
 const provider = new GoogleAuthProvider();
 
+provider.setCustomParameters({
+  prompt: 'select_account',
+});
+
 export const auth = getAuth();
-export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, provider);
 
 export const db = getFirestore();
 
